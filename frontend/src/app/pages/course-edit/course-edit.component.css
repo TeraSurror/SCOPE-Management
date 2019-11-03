@@ -1,0 +1,12 @@
+.course-add-form{
+    border : 1px solid black;
+    width : 70%;
+    margin: 0 auto;
+    padding: 2em;
+    margin-top:3em
+}
+
+.module{
+    border : 1px solid black;
+    padding: 2em;
+}

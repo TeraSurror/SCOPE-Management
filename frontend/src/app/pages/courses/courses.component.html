@@ -1,0 +1,28 @@
+<div class="course-wrapper">
+
+    <h1 style="text-align: center;font-weight: lighter;">Course Catalog</h1>
+    <br>
+    <div class="container" *ngFor="let course of courses" style="margin-top: 2em;">
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="https://d20vrrgs8k4bvw.cloudfront.net/images/degrees/nd578/catalog-card.jpg"
+                    class="img-fluid">
+            </div>
+            <div class="col-sm-7" style="text-align: center;">
+                <h3>{{ course.title }}</h3>
+                <p>{{ course.author }}</p>
+                <div class="skill-wrapper">
+                    <div class="skill" *ngFor="let skill of course.skills">
+                        {{ skill }}
+                    </div>
+                </div>
+                <br>
+                <button type="button" class="btn btn-danger" *ngIf="userIsAdmin" (click)="deleteCourse(course._id)">Delete Course</button>
+                
+                <button type="button" class="btn btn-primary" *ngIf="!userIsAdmin">Register For {{course.title}}</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>

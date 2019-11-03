@@ -1,0 +1,19 @@
+<div class="login-form">
+    <h3 style="font-weight: lighter;text-align: center;">Login</h3>
+    <hr>
+    <br>
+    <form [formGroup]="loginForm">
+        
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input formControlName="email" type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input formControlName="password" type="password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <button type="button" class="btn btn-primary" (click)="onLogin()">Login</button>
+    </form>
+</div>
