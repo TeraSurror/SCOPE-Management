@@ -1,7 +1,8 @@
 <div class="course-wrapper">
 
-    <h1 style="text-align: center;font-weight: lighter;">Course Catalog</h1>
+    <h1 style="text-align: center;font-weight: lighter;">Enrolled Courses</h1>
     <br>
+    <h4 style="text-align: center;font-weight: lighter;" *ngIf="courses.length==0">You have not enrolled in any course</h4>
     <div class="container" *ngFor="let course of courses" style="margin-top: 2em;">
         <div class="row">
             <div class="col-sm-4">
@@ -15,11 +16,8 @@
                     <div class="skill" *ngFor="let skill of course.skills">
                         {{ skill }}
                     </div>
-                </div>
-                <br>
-                <button type="button" class="btn btn-danger" *ngIf="userIsAdmin" (click)="deleteCourse(course._id)">Delete Course</button>
+                </div>           
                 
-                <button type="button" class="btn btn-primary" *ngIf="!userIsAdmin" (click)="registerCourse(course.title,course.author,course.skills)">Register For {{course.title}}</button>
             </div>
         </div>
     </div>

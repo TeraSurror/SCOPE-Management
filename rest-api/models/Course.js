@@ -9,7 +9,7 @@ const courseSchema = new mongoose.Schema({
         type : String,
         required : true,
     },
-    skills : [String],
+    skills : [String]
 });
 
 module.exports = mongoose.model('Course', courseSchema);

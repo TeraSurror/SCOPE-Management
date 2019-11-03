@@ -11,6 +11,7 @@ import { CoursesComponent } from './pages/courses/courses.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { CourseEditComponent } from './pages/course-edit/course-edit.component';
+import { MyCoursesComponent } from './pages/my-courses/my-courses.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CourseEditComponent } from './pages/course-edit/course-edit.component';
     CoursesComponent,
     LoginComponent,
     SignupComponent,
-    CourseEditComponent
+    CourseEditComponent,
+    MyCoursesComponent
   ],
   imports: [
     BrowserModule,

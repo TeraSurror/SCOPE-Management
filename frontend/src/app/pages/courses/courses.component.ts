@@ -24,15 +24,22 @@ export class CoursesComponent implements OnInit{
 
     this.courseService.getCourses();
     this.coursesSub = this.courseService.getCoursesUpdateListner().subscribe(data=>{
-      this.courses = data;
-      console.log(this.courses);
+      this.courses = data;      
     });
 
   }
 
   deleteCourse(id : string){
     this.courseService.deleteCourse(id);
-    
+    this.coursesSub = this.courseService.getCoursesUpdateListner().subscribe(data=>{
+      this.courses = data;      
+    });
+  }
+
+  registerCourse(title : string, author : string, skills : string[]){
+    console.log(title);
+    this.courseService.enrollCourse(title,author,skills);
+    alert("registered sucessfully");
   }
 
 

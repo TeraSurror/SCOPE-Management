@@ -13,12 +13,12 @@
       <li class="nav-item" *ngIf="userIsAuthenticated">
         <a class="nav-link" routerLink="/courses">Courses</a>
       </li>
-      <li class="nav-item" *ngIf="!userIsAdmin">
+      <li class="nav-item" routerLink="/my-courses" *ngIf="!userIsAdmin && userIsAuthenticated">
         <a class="nav-link">My Courses</a>
       </li>
 
       <li class="nav-item" *ngIf="userIsAdmin">
-        <a class="nav-link" routerLink="/admin">Edit Courses</a>
+        <a class="nav-link" routerLink="/admin">Add Course</a>
       </li>
       <li class="nav-item" *ngIf="!userIsAuthenticated">
         <a class="nav-link" routerLink="/login">Login</a>
