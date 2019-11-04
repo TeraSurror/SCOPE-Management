@@ -12,10 +12,15 @@ export class AuthService {
   private isAdmin : boolean = false;
   private adminStatusListener = new Subject<boolean>();
   private authStatusListener = new Subject<boolean>();
-
+  private name :string;
   constructor(private http: HttpClient,private router : Router) {
 
   }
+
+  getUserName(){
+    return this.name;
+  }
+
 
   getIsAdmin(){
     return this.isAdmin;
@@ -49,7 +54,7 @@ export class AuthService {
 
     this.http.post("http://localhost:3000/users/register", authData).subscribe(response =>{
       console.log(response);      
-      this.router.navigate(['/']);      
+      this.router.navigate(['/login']);      
     });
   }
 
@@ -60,11 +65,14 @@ export class AuthService {
       password: password
     }   
 
-    this.http.post<{token:string,isAdmin : boolean}>("http://localhost:3000/users/login", authData).subscribe(response =>{
+    this.http.post<{token:string,isAdmin : boolean,name:string}>("http://localhost:3000/users/login", authData).subscribe(response =>{
       const token = response.token;
       this.token = token;
-      this.isAdmin = response.isAdmin;      
+      this.isAdmin = response.isAdmin;    
+      
       if(token){
+        this.name = response.name;
+        console.log(this.name);  
         this.authStatusListener.next(true);
         this.isAuth = true;       
         if(this.isAdmin){

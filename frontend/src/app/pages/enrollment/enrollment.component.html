@@ -1,0 +1,19 @@
+<br>
+<br>
+
+<div class="container">
+    <table class="table table-bordered table-hover" *ngFor="let course of courses">
+        <thead>
+            <tr>
+                <th>{{ course.title }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of course.enrollments">
+                {{ student }}
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+</div>

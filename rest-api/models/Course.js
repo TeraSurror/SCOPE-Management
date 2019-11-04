@@ -9,7 +9,8 @@ const courseSchema = new mongoose.Schema({
         type : String,
         required : true,
     },
-    skills : [String]
+    skills : [String],
+    enrollments : [String]
 });
 
 module.exports = mongoose.model('Course', courseSchema);

@@ -15,7 +15,8 @@ router.post('/', async (req, res) => {
     const course = new Course({
         title : req.body.title,
         author : req.body.author,
-        skills : req.body.skills 
+        skills : req.body.skills ,
+        enrollments : [],
     });
     try {
         const savedCourse = await course.save();
@@ -24,6 +25,19 @@ router.post('/', async (req, res) => {
         res.json({ message: err });
     }
 });
+
+router.patch('/:id',async (req,res)=>{
+    try{
+        const updatedCourse = await Course.updateOne(
+            { _id : req.params.id },
+            { $push : { enrollments : req.body.name } }
+        );
+        res.json(updatedCourse);
+    }catch(err){
+        res.json({message:err});
+    }
+});
+
 
 
 router.delete('/:id',async (req,res)=>{

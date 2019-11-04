@@ -38,15 +38,16 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     let isAdmin = false;
+    
 
     // Validate Login
     const { error } = loginValidation(req.body);
     if (error) return res.status(400).send(error);
 
     // Check if email exist
-    const user = await User.findOne({ email: req.body.email });
-    if(user.email == "admin@admin.com") isAdmin = true;
+    const user = await User.findOne({ email: req.body.email });     
     if (!user) return res.status(400).send('Email does not exist');
+    if(user.email == "admin@admin.com") isAdmin = true;
 
     //Password valid
     const validPass = await bcrypt.compare(req.body.password,user.password);
@@ -59,7 +60,8 @@ router.post('/login', async (req, res) => {
 
     res.status(200).json({
         token : token,
-        isAdmin : isAdmin
+        isAdmin : isAdmin,
+        name : user.name
     })
 });
 

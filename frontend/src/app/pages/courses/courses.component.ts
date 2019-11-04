@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CoursesService } from '../services/courses.service';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-courses',
@@ -15,7 +16,7 @@ export class CoursesComponent implements OnInit{
   userIsAdmin : boolean = false;
   private adminListenerSub : Subscription;
   
-  constructor(private courseService: CoursesService,private authService : AuthService) { }
+  constructor(private courseService: CoursesService,private authService : AuthService,private http : HttpClient) { }
 
   ngOnInit() {
     
@@ -36,9 +37,13 @@ export class CoursesComponent implements OnInit{
     });
   }
 
-  registerCourse(title : string, author : string, skills : string[]){
+  registerCourse(id:string,title : string, author : string, skills : string[]){
     console.log(title);
     this.courseService.enrollCourse(title,author,skills);
+    const name = this.authService.getUserName();
+    this.http.patch('http://localhost:3000/courses/'+id,{name : name}).subscribe(response=>{
+      console.log(response);
+    });
     alert("registered sucessfully");
   }
 

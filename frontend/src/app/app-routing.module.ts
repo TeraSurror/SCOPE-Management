@@ -8,6 +8,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { AuthGuard } from './auth/auth.guard';
 import { CourseEditComponent } from './pages/course-edit/course-edit.component';
 import { MyCoursesComponent } from './pages/my-courses/my-courses.component';
+import { EnrollmentComponent } from './pages/enrollment/enrollment.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path : 'login' , component : LoginComponent },
   { path : 'signup' , component : SignupComponent },
   { path : 'admin' , component : CourseEditComponent, canActivate:[AuthGuard]},
-  { path : 'my-courses', component : MyCoursesComponent, canActivate:[AuthGuard]  }
+  { path : 'my-courses', component : MyCoursesComponent, canActivate:[AuthGuard]  },
+  { path : 'enrollment' , component : EnrollmentComponent , canActivate:[AuthGuard] }
 ];
 
 @NgModule({

@@ -19,7 +19,7 @@
                 <br>
                 <button type="button" class="btn btn-danger" *ngIf="userIsAdmin" (click)="deleteCourse(course._id)">Delete Course</button>
                 
-                <button type="button" class="btn btn-primary" *ngIf="!userIsAdmin" (click)="registerCourse(course.title,course.author,course.skills)">Register For {{course.title}}</button>
+                <button type="button" class="btn btn-primary" *ngIf="!userIsAdmin" (click)="registerCourse(course._id,course.title,course.author,course.skills)">Register For {{course.title}}</button>
             </div>
         </div>
     </div>

@@ -12,6 +12,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { CourseEditComponent } from './pages/course-edit/course-edit.component';
 import { MyCoursesComponent } from './pages/my-courses/my-courses.component';
+import { EnrollmentComponent } from './pages/enrollment/enrollment.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MyCoursesComponent } from './pages/my-courses/my-courses.component';
     LoginComponent,
     SignupComponent,
     CourseEditComponent,
-    MyCoursesComponent
+    MyCoursesComponent,
+    EnrollmentComponent
   ],
   imports: [
     BrowserModule,
